@@ -23,17 +23,20 @@ var playerMoveCounter = 0
 var currentPlayer = "X"
 var thereIsAWinner = false
 
-val table = mutableListOf(
-    mutableListOf(" ", " ", " "),
-    mutableListOf(" ", " ", " "),
-    mutableListOf(" ", " ", " ")
-)
+val table = MutableList(3) {
+    MutableList(3) {" "}
+}
 
 fun drawBoard(table: MutableList<MutableList<String>>) {
     println("---------")
-    println("| ${table[0][0]} ${table[0][1]} ${table[0][2]} |")
-    println("| ${table[1][0]} ${table[1][1]} ${table[1][2]} |")
-    println("| ${table[2][0]} ${table[2][1]} ${table[2][2]} |")
+    for (i in 0..2) {
+        for (j in 0..2) {
+            if (j == 0) print("| ")
+            print("${table[i][j]} ")
+            if (j == 2) print("|")
+        }
+        println()
+    }
     println("---------\n")
 }
 
